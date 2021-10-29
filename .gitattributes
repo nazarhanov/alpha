@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+# Source files
+# ============
+*.py    text diff=python
+*.html  text diff=html
+*.css   text diff=css
+*.md    text diff=markdown
+
+# Assets files
+# ============
+*.jpg   binary
+*.png   binary
+*.webp  binary
+*.pdf   binary
+*.woff  binary
+*.woff2 binary
+*.db    binary
+*.sql   binary
+
+.git* export-ignore
+.data export-ignore
+.editorconfig export-ignore
+docs export-ignore
+README.md export-ignore
