@@ -1,8 +1,11 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
 
 def index(request):
   return HttpResponse("Alpha store")
 
-def test(request):
-  return HttpResponse("Test route")
+def status(request):
+  if request.method == 'POST':
+    return JsonResponse({'status': 'ok'})
+
+  return redirect('/404')
