@@ -24,6 +24,7 @@ jobs:
       DB_PASSWORD: secret
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
+      SECRET_KEY: test
       ALLOWED_HOSTS: 127.0.0.1
       DEBUG: 0
 
