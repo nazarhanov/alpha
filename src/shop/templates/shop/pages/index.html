@@ -1,0 +1,410 @@
+{% extends "../base/layout.html" %}{% load static %}
+
+<!-- main -->
+{% block main %}
+
+<!-- Start slider -->
+<section id="aa-slider">
+  <div class="aa-slider-area">
+    <div id="sequence" class="seq">
+      <div class="seq-screen">
+        <ul class="seq-canvas">
+          <!-- single slide item -->
+          <li>
+            <div class="seq-model">
+              <img
+                data-seq
+                id="a1"
+                src="{% static 'shop/img/slider/1.jpg' %}"
+                alt="Men slide img"
+              />
+            </div>
+            <div class="seq-title">
+              <span data-seq>NEW COLLECTION</span>
+              <h2 data-seq>Outer Clothes Collection</h2>
+              <p data-seq>
+                Welcome to the outerwear store page. Here you can see a
+                selection of colorful and different types of modern clothing. We
+                wish you to find good clothes for your taste!
+              </p>
+              <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn"
+                >SHOP NOW</a
+              >
+            </div>
+          </li>
+          <!-- single slide item -->
+          <li>
+            <div class="seq-model">
+              <img
+                data-seq
+                id="a1"
+                src="{% static 'shop/img/slider/2.jpg' %}"
+                alt="Wristwatch slide img"
+              />
+            </div>
+            <div class="seq-title">
+              <span data-seq>NEW COLLECTION</span>
+              <h2 data-seq>Jeans Collection</h2>
+              <p data-seq>
+                Welcome to the jeans store page. Here you can see a selection of
+                colorful and different types of modern jeans. We wish you to
+                find good jeans for your taste!
+              </p>
+              <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn"
+                >SHOP NOW</a
+              >
+            </div>
+          </li>
+          <!-- single slide item -->
+          <li>
+            <div class="seq-model">
+              <img
+                data-seq
+                id="a1"
+                src="{% static 'shop/img/slider/3.jpg' %}"
+                alt="Women Jeans slide img"
+              />
+            </div>
+            <div class="seq-title">
+              <span data-seq>NEW COLLECTION</span>
+              <h2 data-seq>Shoes Collection</h2>
+              <p data-seq>
+                Welcome to the shoes store page. Here you can see a selection of
+                colorful and different types of modern shoes. We wish you to
+                find good shoes for your taste!
+              </p>
+              <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn"
+                >SHOP NOW</a
+              >
+            </div>
+          </li>
+          <!-- single slide item       
+            <li>
+              <div class="seq-model">
+                <img data-seq id="a1" src="{% static 'shop/img/slider/4.jpg' %}" alt="Shoes slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 75% Off</span>                
+                <h2 data-seq>Exclusive Shoes</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>
+            -->
+          <!-- single slide item 
+             <li>
+              <div class="seq-model">
+                <img data-seq id="a1" src="{% static 'shop/img/slider/5.jpg' %}" alt="Male Female slide img" />
+              </div>
+              <div class="seq-title">
+                <span data-seq>Save Up to 50% Off</span>                
+                <h2 data-seq>Best Collection</h2>                
+                <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
+                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+              </div>
+            </li>  -->
+        </ul>
+      </div>
+      <!-- slider navigation btn -->
+      <fieldset
+        class="seq-nav"
+        aria-controls="sequence"
+        aria-label="Slider buttons"
+      >
+        <a type="button" class="seq-prev" aria-label="Previous"
+          ><span class="fa fa-angle-left"></span
+        ></a>
+        <a type="button" class="seq-next" aria-label="Next"
+          ><span class="fa fa-angle-right"></span
+        ></a>
+      </fieldset>
+    </div>
+  </div>
+</section>
+<!-- / slider -->
+
+<!-- Support section -->
+<section id="aa-support">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-support-area">
+          <!-- single support -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="aa-support-single">
+              <span class="fa fa-diamond"></span>
+              <h4>BEST QUALITY</h4>
+              <p>Many positive reviews</p>
+            </div>
+          </div>
+          <!-- single support -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="aa-support-single">
+              <span class="fa fa-clock-o"></span>
+              <h4>FAST SHIPPING</h4>
+              <p>Receive delivery the same day you order</p>
+            </div>
+          </div>
+          <!-- single support -->
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="aa-support-single">
+              <span class="fa fa-phone"></span>
+              <h4>SUPPORT 24/7</h4>
+              <p>You can write to us, we will answer quickly</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Support section -->
+<!-- Testimonial -->
+<section id="aa-testimonial">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-testimonial-area">
+          <ul class="aa-testimonial-slider">
+            <!-- single slide -->
+            <li>
+              <div class="aa-testimonial-single">
+                <img
+                  class="aa-testimonial-img"
+                  src="{% static 'shop/img/testimonial-img-1.jpg' %}"
+                  alt="testimonial img"
+                />
+                <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                <p>Life is not fair, get used to it.</p>
+                <div class="aa-testimonial-info">
+                  <p>Nazarkhanov Alisher</p>
+                  <span>Director</span>
+                  <a href="#">31675@iitu.edu.kz</a>
+                </div>
+              </div>
+            </li>
+            <!-- single slide -->
+            <li>
+              <div class="aa-testimonial-single">
+                <img
+                  class="aa-testimonial-img"
+                  src="{% static 'shop/img/testimonial-img-2.jpg' %}"
+                  alt="testimonial img"
+                />
+                <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                <p>If you can't make it good, at least make it look good.</p>
+                <div class="aa-testimonial-info">
+                  <p>Nursultanov Aidos</p>
+                  <span>Designer</span>
+                  <a href="#">31683@iitu.edu.kz</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Testimonial -->
+
+<!-- Latest Blog -->
+<section id="aa-latest-blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-latest-blog-area">
+          <h2>LATEST BLOG</h2>
+          <div class="row">
+            <!-- single latest blog -->
+            <div class="col-md-4 col-sm-4">
+              <div class="aa-latest-blog-single">
+                <figure class="aa-blog-img">
+                  <a href="#"
+                    ><img
+                      src="{% static 'shop/img/promo-banner-1.jpg' %}"
+                      alt="img"
+                  /></a>
+                  <figcaption class="aa-blog-img-caption">
+                    <span href="#"><i class="fa fa-eye"></i>5K</span>
+                    <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
+                    <a href="#"><i class="fa fa-comment-o"></i>20</a>
+                    <span href="#"
+                      ><i class="fa fa-clock-o"></i>June 26, 2016</span
+                    >
+                  </figcaption>
+                </figure>
+                <div class="aa-blog-info">
+                  <h3 class="aa-blog-title"><a href="#">INSTAGRAM</a></h3>
+                  <p>
+                    POST POST POST POST POST POST POST POST POST POST POST POST
+                    POST POST POST POST
+                  </p>
+                  <a href="#" class="aa-read-mor-btn"
+                    >Read more <span class="fa fa-long-arrow-right"></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- single latest blog -->
+            <div class="col-md-4 col-sm-4">
+              <div class="aa-latest-blog-single">
+                <figure class="aa-blog-img">
+                  <a href="#"
+                    ><img
+                      src="{% static 'shop/img/promo-banner-3.jpg' %}"
+                      alt="img"
+                  /></a>
+                  <figcaption class="aa-blog-img-caption">
+                    <span href="#"><i class="fa fa-eye"></i>5K</span>
+                    <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
+                    <a href="#"><i class="fa fa-comment-o"></i>20</a>
+                    <span href="#"
+                      ><i class="fa fa-clock-o"></i>June 26, 2016</span
+                    >
+                  </figcaption>
+                </figure>
+                <div class="aa-blog-info">
+                  <h3 class="aa-blog-title"><a href="#">INSTAGRAM</a></h3>
+                  <p>
+                    POST POST POST POST POST POST POST POST POST POST POST POST
+                    POST POST POST POST
+                  </p>
+                  <a href="#" class="aa-read-mor-btn"
+                    >Read more <span class="fa fa-long-arrow-right"></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- single latest blog -->
+            <div class="col-md-4 col-sm-4">
+              <div class="aa-latest-blog-single">
+                <figure class="aa-blog-img">
+                  <a href="#"
+                    ><img
+                      src="{% static 'shop/img/promo-banner-1.jpg' %}"
+                      alt="img"
+                  /></a>
+                  <figcaption class="aa-blog-img-caption">
+                    <span href="#"><i class="fa fa-eye"></i>5K</span>
+                    <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
+                    <a href="#"><i class="fa fa-comment-o"></i>20</a>
+                    <span href="#"
+                      ><i class="fa fa-clock-o"></i>June 26, 2016</span
+                    >
+                  </figcaption>
+                </figure>
+                <div class="aa-blog-info">
+                  <h3 class="aa-blog-title"><a href="#">INSTAGRAM</a></h3>
+                  <p>
+                    POST POST POST POST POST POST POST POST POST POST POST POST
+                    POST POST POST POST
+                  </p>
+                  <a href="#" class="aa-read-mor-btn"
+                    >Read more <span class="fa fa-long-arrow-right"></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Latest Blog -->
+
+<!-- Client Brand -->
+<section id="aa-client-brand">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="aa-client-brand-area">
+          <ul class="aa-client-brand-slider">
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/adidas-logo-1.png' %}"
+                  alt="java img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/nike-logo-1.png' %}"
+                  alt="jquery img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/iitu-logo-1.png' %}"
+                  alt="html5 img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/ar-logo-1.png' %}"
+                  alt="css3 img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/qr-logo-1.png' %}"
+                  alt="wordPress img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/jordan-logo-1.png' %}"
+                  alt="joomla img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/adidas-logo-1.png' %}"
+                  alt="java img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/nike-logo-1.png' %}"
+                  alt="jquery img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/iitu-logo-1.png' %}"
+                  alt="html5 img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/ar-logo-1.png' %}"
+                  alt="css3 img"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img
+                  src="{% static 'shop/img/qr-logo-1.png' %}"
+                  alt="wordPress img"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / Client Brand -->
+
+{% endblock main %}
+<!-- / main -->
