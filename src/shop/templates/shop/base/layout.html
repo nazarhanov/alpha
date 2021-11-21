@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Shop | Home</title>
+
+    {% load static %}
+
+    <!-- Font awesome -->
+    <link href="{% static 'shop/css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="{% static 'shop/css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link
+      href="{% static 'shop/css/jquery.smartmenus.bootstrap.css' %}"
+      rel="stylesheet"
+    />
+    <!-- Product view slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'shop/css/jquery.simpleLens.css' %}"
+    />
+    <!-- slick slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'shop/css/slick.css' %}"
+    />
+    <!-- price picker slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'shop/css/nouislider.css' %}"
+    />
+    <!-- Theme color -->
+    <link
+      id="switcher"
+      href="{% static 'shop/css/theme-color/default-theme.css' %}"
+      rel="stylesheet"
+    />
+    <!-- Top Slider CSS -->
+    <link
+      href="{% static 'shop/css/sequence-theme.modern-slide-in.css' %}"
+      rel="stylesheet"
+      media="all"
+    />
+
+    <!-- Main style sheet -->
+    <link href="{% static 'shop/css/style.css' %}" rel="stylesheet" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <!-- wpf loader Two -->
+    <div id="wpf-loader-two">
+      <div class="wpf-loader-two-inner">
+        <span>Loading</span>
+      </div>
+    </div>
+    <!-- / wpf loader Two -->
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!-- Start header section -->
+    <header id="aa-header">
+      <!-- start header top  -->
+      <div class="aa-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="aa-header-top-area">
+                <!-- start header top left -->
+                <div class="aa-header-top-left">
+                  <!-- start language -->
+                  <div class="aa-language">
+                    <!-- <div class="dropdown"> -->
+                    <a class="btn" href="#">
+                      <!-- <a
+                        class="btn dropdown-toggle"
+                        href="#"
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="true"
+                      > -->
+                      <img
+                        src="{% static 'shop/img/flag/english.jpg' %}"
+                        alt="english flag"
+                      />ENGLISH
+                      <!-- <span class="caret"></span> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#"><img src="{% static 'shop/img/flag/russian.jpg' %}" alt="">Russian</a></li>
+                        <li>
+                          <a href="#">
+                            <img
+                              src="{% static 'shop/img/flag/english.jpg' %}"
+                              alt=""
+                            />
+                            ENGLISH
+                          </a>
+                        </li>
+                      </ul> -->
+                    <!-- </div> -->
+                  </div>
+                  <!-- / language -->
+
+                  <!-- start currency -->
+                  <div class="aa-currency">
+                    <!-- <div class="dropdown"> -->
+                    <a class="btn" href="#">
+                      <!-- <a
+                        class="btn dropdown-toggle"
+                        href="#"
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="true"
+                      > -->
+                      <i class="fa fa-usd"></i>USD
+                      <!-- <span class="caret"></span> -->
+                    </a>
+                    <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                          <a href="#"><i class="fa fa-euro"></i>EURO</a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fa fa-usd"></i>USD</a>
+                        </li>
+                      </ul> -->
+                    <!-- </div> -->
+                  </div>
+                  <!-- / currency -->
+                  <!-- start cellphone -->
+                  <a class="cellphone hidden-xs" href="tel:+7-771-102-71-11">
+                    <p><span class="fa fa-phone"></span>+7-771-102-71-11</p>
+                  </a>
+                  <!-- / cellphone -->
+                </div>
+                <!-- / header top left -->
+                <div class="aa-header-top-right">
+                  <ul class="aa-head-top-nav-right">
+                    <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
+                    <li><a href="{% url 'cart' %}">My Cart</a></li>
+                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
+                    <li>
+                      <a href="/admin">
+                        <!-- data-toggle="modal"
+                        data-target="#login-modal" -->
+                        Login
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / header top  -->
+
+      <!-- start header bottom  -->
+      <div class="aa-header-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="aa-header-bottom-area">
+                <!-- logo  -->
+                <div class="aa-logo">
+                  <!-- Text based logo -->
+                  <a href="{% url 'index' %}">
+                    <!-- <span class="fa fa-shopping-cart"></span> -->
+                    <p>
+                      AL<strong>PHA</strong>
+                      <span>best store in kazakhstan</span>
+                    </p>
+                  </a>
+                  <!-- img based logo -->
+                  <!-- <a href="{% url 'index' %}"><img src="{% static 'shop/img/logo.png' %}" alt="logo img"></a> -->
+                </div>
+                <!-- / logo  -->
+
+                <!-- cart box -->
+                <div class="aa-cartbox">
+                  <a class="aa-cart-link" href="#">
+                    <span class="fa fa-shopping-basket"></span>
+                    <span class="aa-cart-title">SHOPPING CART</span>
+                    <span class="aa-cart-notify">2</span>
+                  </a>
+                  <div class="aa-cartbox-summary">
+                    <ul>
+                      <li>
+                        <a class="aa-cartbox-img" href="#"
+                          ><img
+                            src="{% static 'shop/img/woman-small-2.jpg' %}"
+                            alt="img"
+                        /></a>
+                        <div class="aa-cartbox-info">
+                          <h4><a href="#">Product Name</a></h4>
+                          <p>1 x $250</p>
+                        </div>
+                        <a class="aa-remove-product" href="#"
+                          ><span class="fa fa-times"></span
+                        ></a>
+                      </li>
+                      <li>
+                        <a class="aa-cartbox-img" href="#"
+                          ><img
+                            src="{% static 'shop/img/woman-small-1.jpg' %}"
+                            alt="img"
+                        /></a>
+                        <div class="aa-cartbox-info">
+                          <h4><a href="#">Product Name</a></h4>
+                          <p>1 x $250</p>
+                        </div>
+                        <a class="aa-remove-product" href="#"
+                          ><span class="fa fa-times"></span
+                        ></a>
+                      </li>
+                      <li>
+                        <span class="aa-cartbox-total-title"> Total </span>
+                        <span class="aa-cartbox-total-price"> $500 </span>
+                      </li>
+                    </ul>
+                    <a
+                      class="aa-cartbox-checkout aa-primary-btn"
+                      href="{% url 'checkout' %}"
+                    >
+                      Checkout
+                    </a>
+                  </div>
+                </div>
+                <!-- / cart box -->
+
+                <!-- search box -->
+                <div class="aa-search-box">
+                  <form action="">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Search here ex. 'man' "
+                    />
+                    <button type="submit">
+                      <span class="fa fa-search"></span>
+                    </button>
+                  </form>
+                </div>
+                <!-- / search box -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / header bottom  -->
+    </header>
+    <!-- / header section -->
+
+    <!-- menu -->
+    <section id="menu">
+      <div class="container">
+        <div class="menu-area">
+          <!-- Navbar -->
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <!-- Left nav -->
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% for category in categories %}
+                <li>
+                  <a href="{% url 'collections' slug=category.slug %}">
+                    {{ category.name }}
+                    <!-- Icon -->
+                    {% if category.sub %}
+                    <span class="caret"></span>
+                    {% endif %}
+                  </a>
+                  {% if category.sub %}
+                  <ul class="dropdown-menu">
+                    {% for subcategory in category.sub %}
+                    <li>
+                      <a href="{% url 'collections' slug=subcategory.slug %}">
+                        {{ subcategory.name }}
+                      </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}{% endfor %}
+                </li>
+
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- / menu -->
+
+    {% block main %}{% endblock main %}
+
+    <!-- footer -->
+    <footer id="aa-footer">
+      <!-- footer bottom -->
+      <div class="aa-footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="aa-footer-top-area">
+                <div class="row">
+                  <div class="col-md-3 col-sm-6">
+                    <div class="aa-footer-widget">
+                      <div class="aa-footer-widget">
+                        <h3>Contact Us</h3>
+                        <address>
+                          <p>Almaty 050000, Kazakhstan</p>
+                          <p>
+                            <span class="fa fa-phone"></span>+7 771-102-71-11
+                          </p>
+                          <p>
+                            <span class="fa fa-envelope"></span>alpha@gmail.com
+                          </p>
+                        </address>
+                        <div class="aa-footer-social">
+                          <a href="#"><span class="fa fa-vk"></span></a>
+                          <a href="#"><span class="fa fa-instagram"></span></a>
+                          <a href="#"><span class="fa fa-whatsapp"></span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer-bottom -->
+      <div class="aa-footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="aa-footer-bottom-area">
+                <p>Designed by Nazarkhanov Alisher and Nursultanov Aidos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- / footer -->
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'shop/js/bootstrap.js' %}"></script>
+    <!-- SmartMenus jQuery plugin -->
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/jquery.smartmenus.js' %}"
+    ></script>
+    <!-- SmartMenus jQuery Bootstrap Addon -->
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/jquery.smartmenus.bootstrap.js' %}"
+    ></script>
+    <!-- To Slider JS -->
+    <script src="{% static 'shop/js/sequence.js' %}"></script>
+    <script src="{% static 'shop/js/sequence-theme.modern-slide-in.js' %}"></script>
+    <!-- Product view slider -->
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/jquery.simpleGallery.js' %}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/jquery.simpleLens.js' %}"
+    ></script>
+    <!-- slick slider -->
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/slick.js' %}"
+    ></script>
+    <!-- Price picker slider -->
+    <script
+      type="text/javascript"
+      src="{% static 'shop/js/nouislider.js' %}"
+    ></script>
+    <!-- Custom js -->
+    <script src="{% static 'shop/js/custom.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "shop",
+  "scripts": {
+    "watch": "sass scss/style.scss  css/style.css -w",
+    "build": "sass scss/style.scss css/style.css --style=compressed"
+  },
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
+}

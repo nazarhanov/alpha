@@ -28,12 +28,16 @@ class MultiField(models.Model):
 
 class Category(models.Model):
   name = models.CharField(max_length=255)
+  slug = models.CharField(max_length=255, unique=True)
   created_date = models.DateField(auto_now_add=True) 
   updated_date = models.DateField(auto_now=True)
-  parent_id = models.ForeignKey("self", on_delete=models.CASCADE)
+  parent = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True)
 
   class Meta:
     verbose_name_plural = "Categories"
+
+  def __str__(self):
+    return self.name
 
 
 class Tag(models.Model):
@@ -67,6 +71,10 @@ class Product(models.Model):
   tags = models.ManyToManyField(Tag)
   sizes = models.ManyToManyField(Size)
   colors = models.ManyToManyField(Color)
+  slug = models.CharField(max_length=255, unique=True)
+
+  def __str__(self):
+    return self.name
 
 
 class Image(models.Model):
