@@ -297,7 +297,7 @@
                 <li><a href="{% url 'index' %}">Home</a></li>
                 {% for category in categories %}
                 <li>
-                  <a href="{% url 'collections' slug=category.slug %}">
+                  <a href="{% url 'collection' slug=category.slug %}">
                     {{ category.name }}
                     <!-- Icon -->
                     {% if category.sub %}
@@ -308,7 +308,7 @@
                   <ul class="dropdown-menu">
                     {% for subcategory in category.sub %}
                     <li>
-                      <a href="{% url 'collections' slug=subcategory.slug %}">
+                      <a href="{% url 'collection' slug=subcategory.slug %}">
                         {{ subcategory.name }}
                       </a>
                     </li>

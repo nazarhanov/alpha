@@ -12,7 +12,10 @@ def product(request, slug):
 def contact(request):
   return render(request, 'shop/pages/contact.html')
 
-def collections(request, slug):
+def collections(request):
+  return render(request, 'shop/pages/collections.html')
+
+def collection(request, slug):
   return render(request, 'shop/pages/collections.html')
 
 def cart(request):
