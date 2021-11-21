@@ -8,4 +8,4 @@ RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 COPY src .
 
-CMD python3 manage.py runserver 0.0.0.0:8000
+CMD gunicorn alpha.wsgi:application --bind 0.0.0.0:8000
