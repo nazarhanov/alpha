@@ -5,14 +5,10 @@
 
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-  <img
-    src="{% static 'shop/img/fashion/fashion-header-bg-8.jpg' %}"
-    alt="fashion img"
-  />
-  <div class="aa-catg-head-banner-area">
+  <div class="aa-catg-head-banner-area" style="background-color: #3c7ac2">
     <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Cart Page</h2>
+        <h2>Cart</h2>
         <ol class="breadcrumb">
           <li><a href="{% url 'index' %}">Home</a></li>
           <li class="active">Cart</li>
@@ -39,28 +35,38 @@
                       <th></th>
                       <th>Product</th>
                       <th>Price</th>
+                      {% comment %}
                       <th>Quantity</th>
                       <th>Total</th>
+                      {% endcomment %}
                     </tr>
                   </thead>
                   <tbody>
+                    {% for product in products %}
                     <tr>
                       <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
+                        <a
+                          class="remove"
+                          href="{% url 'remove_from_cart' id=product.id %}"
+                        >
+                          <fa class="fa fa-close"></fa>
+                        </a>
                       </td>
                       <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-1.png' %}"
-                            alt="img"
-                        /></a>
+                        <a href="{% url 'products' slug=product.slug %}">
+                          <img src="{{ product.image.url }}" alt="img" />
+                        </a>
                       </td>
                       <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
+                        <a
+                          class="aa-cart-title"
+                          href="{% url 'products' slug=product.slug %}"
+                        >
+                          {{ product.name }}
+                        </a>
                       </td>
-                      <td>$250</td>
+                      <td>${{ product.price }}</td>
+                      {% comment %}
                       <td>
                         <input
                           class="aa-cart-quantity"
@@ -69,59 +75,9 @@
                         />
                       </td>
                       <td>$250</td>
+                      {% endcomment %}
                     </tr>
-                    <tr>
-                      <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-2.png' %}"
-                            alt="img"
-                        /></a>
-                      </td>
-                      <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
-                      </td>
-                      <td>$150</td>
-                      <td>
-                        <input
-                          class="aa-cart-quantity"
-                          type="number"
-                          value="1"
-                        />
-                      </td>
-                      <td>$150</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-3.png' %}"
-                            alt="img"
-                        /></a>
-                      </td>
-                      <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
-                      </td>
-                      <td>$50</td>
-                      <td>
-                        <input
-                          class="aa-cart-quantity"
-                          type="number"
-                          value="1"
-                        />
-                      </td>
-                      <td>$50</td>
-                    </tr>
+                    {% endfor %}
                     <tr>
                       <td colspan="6" class="aa-cart-view-bottom">
                         <!--<div class="aa-cart-coupon">

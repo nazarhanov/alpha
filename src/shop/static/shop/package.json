@@ -1,7 +1,7 @@
 {
   "name": "shop",
   "scripts": {
-    "watch": "sass scss/style.scss  css/style.css -w",
+    "watch": "sass scss/style.scss css/style.css -w",
     "build": "sass scss/style.scss css/style.css --style=compressed"
   },
   "dependencies": {

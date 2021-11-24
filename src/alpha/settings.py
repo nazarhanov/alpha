@@ -68,6 +68,7 @@ TEMPLATES = [
         'django.contrib.auth.context_processors.auth',
         'django.contrib.messages.context_processors.messages',
         'shop.context_processors.categories',
+        'shop.context_processors.cart',
       ],
     },
   },
@@ -130,6 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
+CART_SESSION_ID = 'cart'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

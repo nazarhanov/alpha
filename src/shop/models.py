@@ -78,12 +78,11 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-  name = models.CharField(max_length=2047)
+  url = models.CharField(max_length=2047)
   created_date = models.DateField(auto_now_add=True) 
   updated_date = models.DateField(auto_now=True)
   product = models.ForeignKey(Product, on_delete=models.CASCADE)
   color = models.ForeignKey(Color, on_delete=models.CASCADE)
-
 
 class Review(models.Model):
   author = models.CharField(max_length=255) 

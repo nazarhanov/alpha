@@ -1,4 +1,5 @@
 from shop.models import Category
+from shop.cart import Cart
 
 def categories(request):
   objects = Category.objects.all()
@@ -27,4 +28,11 @@ def categories(request):
 
   return {
     'categories': categories
+  }
+
+def cart(request):
+  cart = Cart(request)
+
+  return {
+    'cart': cart
   }

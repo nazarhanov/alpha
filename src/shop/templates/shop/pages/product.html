@@ -1,22 +1,21 @@
 {% extends "../base/layout.html" %}{% load static %}
+<!--  -->
+{% load poll_extras %}
 
 <!-- main -->
 {% block main %}
 
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-  <img
-    src="{% static 'shop/img/fashion/fashion-header-bg-8.jpg' %}"
-    alt="fashion img"
-  />
+  <img src="{{ product.images.0.url }}" alt="fashion img" />
   <div class="aa-catg-head-banner-area">
     <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>T-Shirt</h2>
+        <h2>{{ product.category }} {{ product.id }}</h2>
         <ol class="breadcrumb">
           <li><a href="{% url 'index' %}">Home</a></li>
           <li><a href="{% url 'collections' %}">Collections</a></li>
-          <li class="active">T-shirt</li>
+          <li class="active">{{ product.category }}</li>
         </ol>
       </div>
     </div>
@@ -39,45 +38,27 @@
                     <div class="simpleLens-container">
                       <div class="simpleLens-big-image-container">
                         <a
-                          data-lens-image="{% static 'shop/img/view-slider/large/polo-shirt-1.png' %}"
+                          data-lens-image="{{ product.images.0.url }}"
                           class="simpleLens-lens-image"
                           ><img
-                            src="{% static 'shop/img/view-slider/medium/polo-shirt-1.png' %}"
+                            src="{{ product.images.0.url }}"
                             class="simpleLens-big-image"
                         /></a>
                       </div>
                     </div>
                     <div class="simpleLens-thumbnails-container">
+                      {% for image in product.images %}
+
                       <a
-                        data-big-image="{% static 'shop/img/view-slider/medium/polo-shirt-1.png' %}"
-                        data-lens-image="{% static 'shop/img/view-slider/large/polo-shirt-1.png' %}"
+                        data-big-image="{{ image.url }}"
+                        data-lens-image="{{ image.url }}"
                         class="simpleLens-thumbnail-wrapper"
                         href="#"
                       >
-                        <img
-                          src="{% static 'shop/img/view-slider/thumbnail/polo-shirt-1.png' %}"
-                        />
+                        <img src="{{ image.url }}" />
                       </a>
-                      <a
-                        data-big-image="{% static 'shop/img/view-slider/medium/polo-shirt-3.png' %}"
-                        data-lens-image="{% static 'shop/img/view-slider/large/polo-shirt-3.png' %}"
-                        class="simpleLens-thumbnail-wrapper"
-                        href="#"
-                      >
-                        <img
-                          src="{% static 'shop/img/view-slider/thumbnail/polo-shirt-3.png' %}"
-                        />
-                      </a>
-                      <a
-                        data-big-image="{% static 'shop/img/view-slider/medium/polo-shirt-4.png' %}"
-                        data-lens-image="{% static 'shop/img/view-slider/large/polo-shirt-4.png' %}"
-                        class="simpleLens-thumbnail-wrapper"
-                        href="#"
-                      >
-                        <img
-                          src="{% static 'shop/img/view-slider/thumbnail/polo-shirt-4.png' %}"
-                        />
-                      </a>
+
+                      {% endfor %}
                     </div>
                   </div>
                 </div>
@@ -85,32 +66,33 @@
               <!-- Modal view content -->
               <div class="col-md-7 col-sm-7 col-xs-12">
                 <div class="aa-product-view-content">
-                  <h3>T-Shirt</h3>
+                  <h3>{{ product.name }}</h3>
                   <div class="aa-price-block">
-                    <span class="aa-product-view-price">$34.99</span>
-                    <p class="aa-product-avilability">
-                      Avilability: <span>In stock</span>
-                    </p>
+                    <span class="aa-product-view-price">
+                      ${{ product.price }}
+                    </span>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Officiis animi, veritatis quae repudiandae quod nulla porro
-                    quidem, itaque quis quaerat!
-                  </p>
+                  <p>{{ product.short_desc }}</p>
                   <h4>Size</h4>
                   <div class="aa-prod-view-size">
-                    <a href="#">S</a>
-                    <a href="#">M</a>
-                    <a href="#">L</a>
-                    <a href="#">XL</a>
+                    {% for size in product.sizes %}
+                    <a
+                      class="{% if state.size == size.id %}active{% endif %}"
+                      href="?{% urlquery state 'size' size.id %}"
+                      >{{ size.name }}</a
+                    >
+                    {% endfor %}
                   </div>
                   <h4>Color</h4>
                   <div class="aa-color-tag">
-                    <a href="#" class="aa-color-green"></a>
-                    <a href="#" class="aa-color-yellow"></a>
-                    <a href="#" class="aa-color-pink"></a>
-                    <a href="#" class="aa-color-black"></a>
-                    <a href="#" class="aa-color-white"></a>
+                    {% for color in product.colors %}
+                    <a
+                      class="{% if state.color == color.id %}active{% endif %}"
+                      href="?{% urlquery state 'color' color.id %}"
+                    >
+                      {{ color.id }}
+                    </a>
+                    {% endfor %}
                   </div>
                   <div class="aa-prod-quantity">
                     <form action="">
@@ -124,13 +106,23 @@
                       </select>
                     </form>
                     <p class="aa-prod-category">
-                      Category: <a href="#">Polo T-Shirt</a>
+                      Category:
+                      <a
+                        href="{% url 'collections' slug=product.category.slug %}"
+                      >
+                        {{ product.category }}
+                      </a>
                     </p>
                   </div>
                   <div class="aa-prod-view-bottom">
-                    <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
+                    <a
+                      class="aa-add-to-cart-btn"
+                      href="{% url 'add_to_cart' id=product.id %}"
+                    >
+                      Add To Cart
+                    </a>
                     <a class="aa-add-to-cart-btn" href="#">Wishlist</a>
-                    <a class="aa-add-to-cart-btn" href="#">Compare</a>
+                    <!-- <a class="aa-add-to-cart-btn" href="#">Compare</a> -->
                   </div>
                 </div>
               </div>
@@ -145,49 +137,7 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div class="tab-pane fade in active" id="description">
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quod, culpa!
-                  </li>
-                  <li>Lorem ipsum dolor sit amet.</li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Dolor qui eius esse!
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quibusdam, modi!
-                  </li>
-                </ul>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Illum, iusto earum voluptates autem esse molestiae ipsam,
-                  atque quam amet similique ducimus aliquid voluptate
-                  perferendis, distinctio!
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Blanditiis ea, voluptas! Aliquam facere quas cumque rerum
-                  dolore impedit, dicta ducimus repellat dignissimos, fugiat,
-                  minima quaerat necessitatibus? Optio adipisci ab, obcaecati,
-                  porro unde accusantium facilis repudiandae.
-                </p>
+                {{ product.full_desc | safe }}
               </div>
             </div>
           </div>
