@@ -49,9 +49,10 @@
     />
 
     <!-- Main style sheet -->
-    <link href="{% static 'shop/css/style.css' %}" rel="stylesheet" />
+    <link href="{% static 'shop/css/style.css' %}?v=1.0.6" rel="stylesheet" />
 
     <!-- Google Font -->
+    {% comment %}
     <link
       href="https://fonts.googleapis.com/css?family=Lato"
       rel="stylesheet"
@@ -62,6 +63,7 @@
       rel="stylesheet"
       type="text/css"
     />
+    {% endcomment %}
   </head>
   <body>
     <!-- wpf loader Two -->
@@ -156,10 +158,12 @@
                 <!-- / header top left -->
                 <div class="aa-header-top-right">
                   <ul class="aa-head-top-nav-right">
-                    <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                     <li><a href="{% url 'cart' %}">My Cart</a></li>
-                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
-                    <li>
+                    <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
+                    <li class="aa-item-checkout">
+                      <a href="{% url 'checkout' %}">Checkout</a>
+                    </li>
+                    <li class="aa-item-login">
                       <a href="/admin">
                         <!-- data-toggle="modal"
                         data-target="#login-modal" -->
@@ -382,7 +386,7 @@
     <!-- / footer -->
 
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'shop/js/jquery.min.js' %}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'shop/js/bootstrap.js' %}"></script>
     <!-- SmartMenus jQuery plugin -->

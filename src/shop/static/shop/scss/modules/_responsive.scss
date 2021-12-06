@@ -366,6 +366,9 @@
       padding: 8px 10px;
     }
   }
+  #cart-view .cart-view-area .cart-view-table {
+    background: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -544,6 +547,22 @@
   .aa-blog-details #respond input[type="url"] {
     width: 100%;
   }
+  #aa-header .aa-header-top .aa-item-login,
+  #aa-header .aa-header-top .aa-item-checkout {
+    display: none !important;
+  }
+}
+
+@media (max-width: 400px) {
+  #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  #aa-header .aa-header-bottom .aa-header-bottom-area .aa-cartbox {
+    display: none;
+  }
 }
 
 @media (max-width: 360px) {
@@ -556,7 +575,7 @@
     display: inline-block;
   }
   #aa-header .aa-header-bottom .aa-header-bottom-area .aa-logo a p {
-    text-align: left;
+    text-align: center;
   }
   #aa-header .aa-header-bottom .aa-cartbox {
     text-align: center;

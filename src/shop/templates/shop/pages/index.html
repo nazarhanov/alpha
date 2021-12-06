@@ -10,15 +10,11 @@
       <div class="seq-screen">
         <ul class="seq-canvas">
           <!-- single slide item -->
-          <li>
-            <div class="seq-model">
-              <img
-                data-seq
-                id="a1"
-                src="{% static 'shop/img/slider/1.jpg' %}"
-                alt="Men slide img"
-              />
-            </div>
+          <li
+            style="
+              background-image: url('{% static 'shop/img/slider/1.jpg' %}');
+            "
+          >
             <div class="seq-title">
               <span data-seq>NEW COLLECTION</span>
               <h2 data-seq>Outer Clothes Collection</h2>
@@ -37,15 +33,11 @@
             </div>
           </li>
           <!-- single slide item -->
-          <li>
-            <div class="seq-model">
-              <img
-                data-seq
-                id="a1"
-                src="{% static 'shop/img/slider/2.jpg' %}"
-                alt="Wristwatch slide img"
-              />
-            </div>
+          <li
+            style="
+              background-image: url('{% static 'shop/img/slider/2.jpg' %}');
+            "
+          >
             <div class="seq-title">
               <span data-seq>NEW COLLECTION</span>
               <h2 data-seq>Jeans Collection</h2>
@@ -60,15 +52,11 @@
             </div>
           </li>
           <!-- single slide item -->
-          <li>
-            <div class="seq-model">
-              <img
-                data-seq
-                id="a1"
-                src="{% static 'shop/img/slider/3.jpg' %}"
-                alt="Women Jeans slide img"
-              />
-            </div>
+          <li
+            style="
+              background-image: url('{% static 'shop/img/slider/3.jpg' %}');
+            "
+          >
             <div class="seq-title">
               <span data-seq>NEW COLLECTION</span>
               <h2 data-seq>Shoes Collection</h2>
@@ -225,22 +213,21 @@
             <div class="col-md-4 col-sm-4">
               <div class="aa-latest-blog-single">
                 <figure class="aa-blog-img">
-                  <a href="#">
+                  <a href="{% url 'products' slug=product.slug %}">
                     <img src="{{ product.image.url }}" alt="img" />
                   </a>
                   <figcaption class="aa-blog-img-caption">
-                    <span href="#">
+                    <span>
                       <i class="fa fa-eye"></i>
                       {{ product.views }}
                     </span>
-                    {% comment %}
-                    <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                    {% endcomment %}
                   </figcaption>
                 </figure>
                 <div class="aa-blog-info">
                   <h3 class="aa-blog-title">
-                    <a href="#">{{ product.name }}</a>
+                    <a href="{% url 'products' slug=product.slug %}">
+                      {{ product.name }}
+                    </a>
                   </h3>
                   <p>{{ product.short_desc | truncatechars:92 }}</p>
                   <a

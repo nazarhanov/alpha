@@ -50,11 +50,11 @@ jQuery(function ($) {
   /* ----------------------------------------------------------- */
 
   jQuery("#demo-1 .simpleLens-thumbnails-container img").simpleGallery({
-    loading_image: "shop/img/loading.gif",
+    loading_image: "/static/shop/img/loading.gif",
   });
 
   jQuery("#demo-1 .simpleLens-big-image").simpleLens({
-    loading_image: "shop/img/loading.gif",
+    loading_image: "/static/shop/img/loading.gif",
   });
 
   /* ----------------------------------------------------------- */
@@ -355,5 +355,24 @@ jQuery(function ($) {
 
   jQuery(".aa-filter-form select").change(function (e) {
     jQuery(".aa-filter-form").submit();
+  });
+
+  // SUBMIT COUNT IN PRODUCT PAGE
+
+  function replaceQueryParam(param, value, search) {
+    var regex = new RegExp("([?;&])" + param + "[^&;]*[;&]?");
+    var query = search.replace(regex, "$1").replace(/&$/, "");
+
+    return (
+      (query.length > 2 ? query + "&" : "?") +
+      (value ? param + "=" + value : "")
+    );
+  }
+
+  jQuery(".aa-prod-quantity select[name=count]").change(function (e) {
+    var form = jQuery(".aa-prod-quantity form");
+    var href = replaceQueryParam("count", e.target.value, form.attr("action"));
+    href += new URL(form.attr("action"), window.location).hash;
+    window.location = href;
   });
 });

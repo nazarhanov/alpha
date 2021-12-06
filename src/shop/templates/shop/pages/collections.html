@@ -122,10 +122,17 @@
                   >
                     <img src="{{ product.image.url }}" alt="polo shirt img" />
                   </a>
+                  {% if not product.in_cart %}
                   <a class="aa-add-card-btn" href="{% url 'add_to_cart' id=product.id %}">
                     <span class="fa fa-shopping-cart"></span>
                     Add To Cart
                   </a>
+                  {% else %}
+                  <a class="aa-add-card-btn" href="{% url 'cart' %}">
+                    <span class="fa fa-shopping-cart"></span>
+                    Go To Cart
+                  </a>
+                  {% endif %}
                   <figcaption>
                     <h4 class="aa-product-title">
                       <a
@@ -140,13 +147,26 @@
                   </figcaption>
                 </figure>
                 <div class="aa-product-hvr-content">
+                  {% if not product.in_wishlist %}
                   <a
-                    href="#"
+                    href="{% url 'add_to_wishlist' id=product.id %}"
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Add to Wishlist"
-                    ><span class="fa fa-heart-o"></span
-                  ></a>
+                  >
+                    <span class="fa fa-heart-o"></span>
+                  </a>
+                  {% else %}
+                  <a
+                  href="{% url 'wishlist' %}"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Go to Wishlist"
+                >
+                  <span class="fa fa-heart"></span>
+                </a>
+
+                  {% endif %}
                   <!-- <a
                     href="#"
                     data-toggle="tooltip"
@@ -335,7 +355,9 @@
                   {% for l in page.paginator.page_range %}
                     {% if l > page.number|add:'-3' and l < page.number|add:'3' %}
                     <li>
-                      <a href="?{% urlquery query 'page' forloop.counter %}">
+                      <a href="?{% urlquery query 'page' forloop.counter %}" 
+                      {%  if forloop.counter == query.page %}class="current"{% endif %}
+                      >
                         {{ forloop.counter }}
                       </a>
                     </li>

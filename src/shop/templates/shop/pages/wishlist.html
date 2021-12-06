@@ -1,4 +1,6 @@
 {% extends "../base/layout.html" %}{% load static %}
+<!--  -->
+{% load poll_extras %}
 
 <!-- main -->
 {% block main %}
@@ -35,81 +37,70 @@
                 <table class="table">
                   <thead>
                     <tr>
+                      {% if products|length %}
                       <th></th>
                       <th></th>
                       <th>Product</th>
                       <th>Price</th>
+                      {% comment %}
                       <th>Stock Status</th>
+                      {% endcomment %}
                       <th></th>
+                      <!---->
+                      {% else %}
+                      <th>No products. Please, add some products</th>
+                      {% endif %}
                     </tr>
                   </thead>
                   <tbody>
+                    {% if products|length %}
+                    <!---->
+                    {% for product in products %}
                     <tr>
                       <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
+                        <a
+                          class="remove"
+                          href="{% url 'remove_from_wishlist' id=product.id %}"
+                        >
+                          <fa class="fa fa-close"></fa>
+                        </a>
                       </td>
                       <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-1.png' %}"
-                            alt="img"
-                        /></a>
+                        <a
+                          href="{% url 'products' slug=product.slug %}?{% urlquery product.params %}"
+                        >
+                          <img src="{{ product.image.url }}" alt="img" />
+                        </a>
                       </td>
                       <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
+                        <a
+                          class="aa-cart-title"
+                          href="{% url 'products' slug=product.slug %}?{% urlquery product.params %}"
+                          >{{ product.name }}</a
+                        >
                       </td>
-                      <td>$250</td>
+                      <td>${{ product.price }}</td>
+                      {% comment %}
                       <td>In Stock</td>
+                      {% endcomment %}
                       <td>
-                        <a href="#" class="aa-add-to-cart-btn">Add To Cart</a>
+                        {% if not product.in_cart %}
+                        <a
+                          href="{% url 'add_to_cart' id=product.id %}"
+                          class="aa-add-to-cart-btn"
+                        >
+                          Add To Cart
+                        </a>
+                        {% else %}
+                        <a href="{% url 'cart' %}" class="aa-add-to-cart-btn">
+                          Go To Cart
+                        </a>
+                        {% endif %}
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-2.png' %}"
-                            alt="img"
-                        /></a>
-                      </td>
-                      <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
-                      </td>
-                      <td>$150</td>
-                      <td>In Stock</td>
-                      <td>
-                        <a href="#" class="aa-add-to-cart-btn">Add To Cart</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a class="remove" href="#"
-                          ><fa class="fa fa-close"></fa
-                        ></a>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><img
-                            src="{% static 'shop/img/man/polo-shirt-3.png' %}"
-                            alt="img"
-                        /></a>
-                      </td>
-                      <td>
-                        <a class="aa-cart-title" href="#">Polo T-Shirt</a>
-                      </td>
-                      <td>$50</td>
-                      <td>In Stock</td>
-                      <td>
-                        <a href="#" class="aa-add-to-cart-btn">Add To Cart</a>
-                      </td>
-                    </tr>
+                    {% endfor %}
+                    <!---->
+                    {% endif %}
                   </tbody>
                 </table>
               </div>

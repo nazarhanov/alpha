@@ -1,11 +1,13 @@
 {% extends "../base/layout.html" %}{% load static %}
+<!--  -->
+{% load poll_extras %}
 
 <!-- main -->
 {% block main %}
 
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
-  <div class="aa-catg-head-banner-area" style="background-color: #3c7ac2">
+  <div class="aa-catg-head-banner-area">
     <div class="container">
       <div class="aa-catg-head-banner-content">
         <h2>Cart</h2>
@@ -31,17 +33,24 @@
                 <table class="table">
                   <thead>
                     <tr>
+                      {% if products|length %}
                       <th></th>
                       <th></th>
                       <th>Product</th>
                       <th>Price</th>
-                      {% comment %}
                       <th>Quantity</th>
                       <th>Total</th>
-                      {% endcomment %}
+                      <!---->
+                      {% else %}
+                      <th>No products. Please, add some products</th>
+                      {% endif %}
                     </tr>
                   </thead>
+
+                  {% if products|length %}
+
                   <tbody>
+                    <!---->
                     {% for product in products %}
                     <tr>
                       <td>
@@ -53,19 +62,23 @@
                         </a>
                       </td>
                       <td>
-                        <a href="{% url 'products' slug=product.slug %}">
+                        <a
+                          href="{% url 'products' slug=product.slug %}?{% urlquery product.params %}"
+                        >
                           <img src="{{ product.image.url }}" alt="img" />
                         </a>
                       </td>
                       <td>
                         <a
                           class="aa-cart-title"
-                          href="{% url 'products' slug=product.slug %}"
+                          href="{% url 'products' slug=product.slug %}?{% urlquery product.params %}"
                         >
                           {{ product.name }}
                         </a>
                       </td>
                       <td>${{ product.price }}</td>
+                      <td>{{ product.count }}</td>
+                      <td>{{ product.total }}</td>
                       {% comment %}
                       <td>
                         <input
@@ -78,40 +91,56 @@
                       {% endcomment %}
                     </tr>
                     {% endfor %}
+                    <!---->
                     <tr>
                       <td colspan="6" class="aa-cart-view-bottom">
-                        <!--<div class="aa-cart-coupon">
-                           <input class="aa-coupon-code" type="text" placeholder="Coupon">
-                           <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
-                         </div>-->
+                        {% comment %}
+                        <div class="aa-cart-coupon">
+                          <input
+                            class="aa-coupon-code"
+                            type="text"
+                            placeholder="Coupon"
+                          />
+                          <input
+                            class="aa-cart-view-btn"
+                            type="submit"
+                            value="Apply Coupon"
+                          />
+                        </div>
+                        {% endcomment %} {% comment %}
                         <input
                           class="aa-cart-view-btn"
                           type="submit"
                           value="Update Cart"
                         />
+                        {% endcomment %}
                       </td>
                     </tr>
                   </tbody>
+
+                  {% endif %}
                 </table>
               </div>
             </form>
+
+            {% if products|length %}
+
             <!-- Cart Total view -->
             <div class="cart-view-total">
               <h4>Cart Totals</h4>
               <table class="aa-totals-table">
                 <tbody>
                   <tr>
-                    <th>Subtotal</th>
-                    <td>$450</td>
-                  </tr>
-                  <tr>
-                    <th>Total</th>
-                    <td>$450</td>
+                    <td>{{ total|yesno:"$," }}{{ total }}</td>
                   </tr>
                 </tbody>
               </table>
-              <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
+              <a href="{% url 'checkout' %}" class="aa-cart-view-btn">
+                Proced to Checkout
+              </a>
             </div>
+
+            {% endif %}
           </div>
         </div>
       </div>

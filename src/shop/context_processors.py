@@ -1,5 +1,6 @@
 from shop.models import Category
 from shop.cart import Cart
+from shop.wishlist import Wishlist
 
 def categories(request):
   objects = Category.objects.all()
@@ -35,4 +36,11 @@ def cart(request):
 
   return {
     'cart': cart
+  }
+
+def wishlist(request):
+  wishlist = Wishlist(request)
+
+  return {
+    'wishlist': wishlist
   }

@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import fields
+from django.core.validators import RegexValidator
 
 
 class Group(models.Model):
@@ -76,6 +77,42 @@ class Product(models.Model):
   def __str__(self):
     return self.name
 
+  def total(self, count=1):
+    return self.price * count
+
+
+class Order(models.Model):
+  first_name = models.CharField(max_length=255, blank=False)
+  last_name = models.CharField(max_length=255, blank=False)
+  email = models.EmailField(max_length=319, blank=False)
+  phone_number = models.CharField(max_length=255, blank=False, validators=[
+    RegexValidator(
+      regex=r'^\d{7,15}$',
+      message='Phone number must contain only nums. Up to 15 digits allowed.',
+    ),
+  ])
+  comment = models.CharField(max_length=1023, blank=True)
+  products = models.ManyToManyField(Product, through='OrderItem')
+
+  PAYMENT_CHOICES = (
+    ('1', 'Cash'),
+    ('2', 'Card'),
+  )
+
+  payment = models.CharField(max_length=255, blank=False, choices=PAYMENT_CHOICES, default='Cash')
+  closed = models.BooleanField(default=False, blank=False)
+
+  def __str__(self):
+    return f"#{self.id}  {self.first_name} {self.last_name} - {'Processing' if not self.closed else 'Closed'}"
+
+
+class OrderItem(models.Model):
+  product = models.ForeignKey(Product, blank=False, on_delete=models.CASCADE)
+  order = models.ForeignKey(Order, blank=False, on_delete=models.CASCADE)
+  count = models.BigIntegerField(default=1, blank=False)
+  color = models.ForeignKey(Color, blank=False, on_delete=models.CASCADE)
+  size = models.ForeignKey(Size, blank=False, on_delete=models.CASCADE)
+
 
 class Image(models.Model):
   url = models.CharField(max_length=2047)
@@ -83,6 +120,7 @@ class Image(models.Model):
   updated_date = models.DateField(auto_now=True)
   product = models.ForeignKey(Product, on_delete=models.CASCADE)
   color = models.ForeignKey(Color, on_delete=models.CASCADE)
+
 
 class Review(models.Model):
   author = models.CharField(max_length=255) 

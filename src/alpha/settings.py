@@ -42,6 +42,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,7 @@ TEMPLATES = [
         'django.contrib.messages.context_processors.messages',
         'shop.context_processors.categories',
         'shop.context_processors.cart',
+        'shop.context_processors.wishlist',
       ],
     },
   },
@@ -132,6 +134,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
 CART_SESSION_ID = 'cart'
+WISHLIST_SESSION_ID = 'wishlist'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
