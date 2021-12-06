@@ -135,6 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
 CART_SESSION_ID = 'cart'
 WISHLIST_SESSION_ID = 'wishlist'
+SITE_ID = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
