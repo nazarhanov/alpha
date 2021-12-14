@@ -68,9 +68,10 @@
   border: 2px solid #fff;
   border-radius: 50%;
   height: 100px;
-  left: 46%;
+  left: 50%;
   position: absolute;
-  top: 40%;
+  top: 45%;
+  transform: translate3d(-50%, -50%, 0);
   width: 100px;
   text-align: center;
 }
