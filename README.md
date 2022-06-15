@@ -1,6 +1,6 @@
 # Project: [Alpha store](https://alpha.nazarhanov.com)
 
-![CI/CD workflow](https://github.com/nazarhanov/alpha/actions/workflows/automation.yml/badge.svg)
+![CI/CD status](https://github.com/nazarhanov/alpha/actions/workflows/automation.yml/badge.svg)
 
 ### Run app with `python`
 
